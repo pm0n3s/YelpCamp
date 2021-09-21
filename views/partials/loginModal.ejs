@@ -1,0 +1,74 @@
+<div class="modal fade pd-3" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs mb-3" role="tablist">
+                        <li role="presentation" class="active nav-item" autofocus>
+                            <a href="#loginTab" class="nav-link" aria-controls="uploadTab" role="tab"
+                                data-toggle="tab">Login</a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a href="#signUp" class="nav-link" aria-controls="browseTab" role="tab"
+                                data-toggle="tab">Sign up</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="loginTab">
+                            <form action="/login" method="POST" class="validated-form" novalidate>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" type="text" name="username" id="username"
+                                        placeholder='@' required>
+                                    <label class="form-label" for="username">Username</label>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" type="password" name="password" id="password"
+                                        placeholder='@' required>
+                                    <label class="form-label" for="password">Password</label>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <button class="btn btn-success">Login</button>
+                            </form>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="signUp">
+                            <form action="/register" method="POST" class="validated-form" novalidate>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" type="text" name="username" id="username"
+                                        placeholder='@' required>
+                                    <label class="form-label" for="username">Username</label>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" type="email" name="email" id="email" placeholder='@'
+                                        required>
+                                    <label class="form-label" for="email">Email</label>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" type="password" name="password" id="password"
+                                        placeholder='@' required>
+                                    <label class="form-label" for="password">Password</label>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <button class="btn btn-success">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
