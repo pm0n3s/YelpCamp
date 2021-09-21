@@ -51,7 +51,7 @@ CampgroundSchema.virtual('properties.popupMarkup').get(function () {
             <div class="card-body p-1">
             <h6 class="card-title mb-0">${this.title}</h6>
             <p class="card-text text-muted mb-0"">${this.location}</p>
-            <a href="/campgrounds/${this._id}" class="btn-sm btn-primary">View</a>
+            <a href="/campgrounds/${this._id}" class=" btn btn-sm btn-primary">View</a>
             </div>
             </div>`
 })
