@@ -24,7 +24,7 @@ const ExpressError = require('./utilities/ExpressError')
 const User = require('./models/user')
 
 const app = express()
-const port = 3000
+
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'
 // const dbUrl = 'mongodb://localhost:27017/yelp-camp'
@@ -157,5 +157,5 @@ app.use((err, req, res, next) => {
     if (!err.message) err.message = 'Something went wrong'
     res.status(statusCode).render('error', { err })
 })
-
+const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`connected to port ${port}`))
