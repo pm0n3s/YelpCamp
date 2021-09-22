@@ -2,8 +2,8 @@ mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
-    center: [-103.5917, 40.6699],
-    zoom: 3
+    center: [-97.6917, 40.2699],
+    zoom: 2.5
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -37,18 +37,18 @@ map.on('load', () => {
                 'step',
                 ['get', 'point_count'],
                 '#b3cde0',
-                10,
+                5,
                 '#6497b1',
-                30,
+                10,
                 '#005b96'
             ],
             'circle-radius': [
                 'step',
                 ['get', 'point_count'],
                 15,
-                10,
+                5,
                 20,
-                30,
+                10,
                 25
             ]
         }
