@@ -16,12 +16,11 @@ db.on('error', console.error.bind(console, 'connection error'))
 db.once('open', () => console.log('database connected'))
 
 const sample = array => array[Math.floor(Math.random() * array.length)]
-let count = 0
 
 const seedDB = async () => {
-    await Campground.deleteMany({})
-    await Review.deleteMany({})
-    for (let i = 0; i < 50; i++) {
+    // await Campground.deleteMany({})
+    // await Review.deleteMany({})
+    for (let i = 0; i < 30; i++) {
         const random1000 = Math.floor(Math.random() * 1000)
         const price = Math.floor(Math.random() * 20) + 10
         const d = sample(descriptors)
@@ -40,9 +39,7 @@ const seedDB = async () => {
             price
         })
         if (i % 2 !== 0) {
-            Math.floor(Math.random() * images.length - 1)
-            camp.images.push(images[count])
-            count++
+            camp.images.push(sample(images))
         }
         camp.images.push(d.image)
         camp.images.push(p.image)
