@@ -1,13 +1,16 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 const cities = require('./cities')
 const { places, descriptors, adjecttive, timeOfYear, experienceLevel, images } = require('./seedHelpers')
 const Campground = require('../models/campground');
 const Review = require('../models/review')
+const { cloudinary } = require('../cloudinary/index')
+const { filenames } = require('../seeds/seedHelpers')
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'
 const patId = '614a2b3887ae143c8dc0e83e' || '61419996e375ae056b9150b4'
 
-mongoose.connect('mongodb+srv://user-1:CLWDWHte4mZVO1yj@cluster0.kypk5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+mongoose.connect(dbUrl)
     .then(() => { console.log('Connected to mongo') })
     .catch(err => { console.log(err) });
 
@@ -18,8 +21,20 @@ db.once('open', () => console.log('database connected'))
 const sample = array => array[Math.floor(Math.random() * array.length)]
 
 const seedDB = async () => {
-    // await Campground.deleteMany({})
-    // await Review.deleteMany({})
+    const campgrounds = await Campground.find({})
+    if (campgrounds) {
+        for (let camp of campgrounds) {
+            if (camp.images) {
+                for (let img of camp.images) {
+                    if (!filenames[img.filename]) {
+                        await cloudinary.uploader.destroy(img.filename)
+                    }
+                }
+            }
+        }
+    }
+    await Campground.deleteMany({})
+    await Review.deleteMany({})
     for (let i = 0; i < 30; i++) {
         const random1000 = Math.floor(Math.random() * 1000)
         const price = Math.floor(Math.random() * 20) + 10
