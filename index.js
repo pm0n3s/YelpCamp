@@ -51,6 +51,7 @@ app.use(mongoSanitize());
 
 app.use(helmet())
 const scriptSrcUrls = [
+    "https://pb-yelpcamp.herokuapp.com/",
     "https://maxcdn.bootstrapcdn.com",
     "https://api.tiles.mapbox.com",
     "https://api.mapbox.com",
@@ -61,6 +62,7 @@ const scriptSrcUrls = [
     "https://code.jquery.com"
 ];
 const styleSrcUrls = [
+    "https://pb-yelpcamp.herokuapp.com/",
     "https://kit-free.fontawesome.com",
     "https://stackpath.bootstrapcdn.com",
     "https://api.mapbox.com",
@@ -70,6 +72,7 @@ const styleSrcUrls = [
     "https://cdn.jsdelivr.net"
 ];
 const connectSrcUrls = [
+    "https://pb-yelpcamp.herokuapp.com/",
     "https://api.mapbox.com",
     "https://*.tiles.mapbox.com",
     "https://events.mapbox.com",
